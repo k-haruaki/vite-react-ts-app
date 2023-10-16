@@ -3,6 +3,7 @@ import { useState } from 'react';
 type Todo = {
   readonly id: number;
   value: string;
+  checked: boolean;
 };
 
 export const App = () => {
@@ -15,6 +16,7 @@ export const App = () => {
     const newTodo: Todo = {
       id: new Date().getTime(),
       value: text,
+      checked: false,
     };
 
     setTodos((todos) => [newTodo, ...todos]);
@@ -29,7 +31,20 @@ export const App = () => {
     setTodos((todos) => {
       const newTodos = todos.map((todo) => {
         if (todo.id === id) {
-          return { ...todo, value: value };
+          return { ...todo, value };
+        }
+        return todo;
+      });
+
+      return newTodos;
+    });
+  };
+
+  const handleCheck = (id: number, checked: boolean) => {
+    setTodos((todos) => {
+      const newTodos = todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, checked };
         }
         return todo;
       });
@@ -54,7 +69,13 @@ export const App = () => {
           return (
             <li key={todo.id}>
               <input
+                type="checkbox"
+                checked={todo.checked}
+                onChange={() => handleCheck(todo.id, !todo.checked)}
+              />
+              <input
                 type="text"
+                disabled={todo.checked}
                 value={todo.value}
                 onChange={(e) => handleEdit(todo.id, e.target.value)}
               />
