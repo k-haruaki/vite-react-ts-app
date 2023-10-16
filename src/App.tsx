@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import { About, Contact, Home, NoMatch } from './routes/index';
-import CustomLink from './customLink';
+import { About, Contact, Home, NoMatch, Post, Posts } from './routes/index';
+import CustomLink from './CustomLink';
 
 const App = () => {
   return (
@@ -16,11 +16,17 @@ const App = () => {
         <li>
           <CustomLink to="/contact">Contact</CustomLink>
         </li>
+        <li>
+          <CustomLink to="/posts">Posts</CustomLink>
+        </li>
       </ul>
       <Routes>
         <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/posts" element={<Posts />}>
+          <Route path="post" element={<Post />} />
+        </Route>
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </div>
