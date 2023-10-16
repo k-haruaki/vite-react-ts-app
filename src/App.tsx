@@ -1,5 +1,6 @@
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { About, Contact, Home, NoMatch } from './routes/index';
+import CustomLink from './customLink';
 
 const App = () => {
   return (
@@ -7,28 +8,13 @@ const App = () => {
       <h1>Hello React Router v6</h1>
       <ul>
         <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? 'active' : undefined)}
-            to="/"
-          >
-            Home
-          </NavLink>
+          <CustomLink to="/">Home</CustomLink>
         </li>
         <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? 'active' : undefined)}
-            to="/about"
-          >
-            About
-          </NavLink>
+          <CustomLink to="/about">About</CustomLink>
         </li>
         <li>
-          <NavLink
-            className={({ isActive }) => (isActive ? 'active' : undefined)}
-            to="/contact"
-          >
-            Contact
-          </NavLink>
+          <CustomLink to="/contact">Contact</CustomLink>
         </li>
       </ul>
       <Routes>
