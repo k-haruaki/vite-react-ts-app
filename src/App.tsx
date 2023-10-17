@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { About, Contact, Home, NoMatch, Post, Posts } from './routes/index';
-import User from './components/User';
-import UserQuery from './components/UserQuery';
+import User from './components/user/User';
+import UserQuery from './components/user/UserQuery';
 import CustomLink from './CustomLink';
 
 const App = () => {
