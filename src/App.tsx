@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { About, Contact, Home, NoMatch, Post, Posts } from './routes/index';
 import User from './components/User';
+import UserQuery from './components/UserQuery';
 import CustomLink from './CustomLink';
 
 const App = () => {
@@ -23,6 +24,9 @@ const App = () => {
         <li>
           <CustomLink to="/user">User</CustomLink>
         </li>
+        <li>
+          <CustomLink to="/user/query">User Query</CustomLink>
+        </li>
       </ul>
       <Routes>
         <Route index element={<Home />} />
@@ -32,6 +36,7 @@ const App = () => {
           <Route path="post" element={<Post />} />
         </Route>
         <Route path="/user" element={<User />} />
+        <Route path="/user/query" element={<UserQuery />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </div>

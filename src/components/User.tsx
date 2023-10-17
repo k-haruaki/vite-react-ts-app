@@ -24,7 +24,7 @@ const user = {
   },
 };
 
-type User = typeof user;
+export type User = typeof user;
 
 const fetchUsers = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');
