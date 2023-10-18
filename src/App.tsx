@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { About, Contact, Home, NoMatch, Post, Posts } from './routes/index';
 import Login from './components/login/Login';
+import LoginForHookForm from './components/login/LoginForHookForm';
 import User from './components/user/User';
 import UserQuery from './components/user/UserQuery';
 import CustomLink from './CustomLink';
@@ -31,6 +32,9 @@ const App = () => {
         <li>
           <CustomLink to="/login">Login</CustomLink>
         </li>
+        <li>
+          <CustomLink to="/login/hook">Login React Hook Form</CustomLink>
+        </li>
       </ul>
       <Routes>
         <Route index element={<Home />} />
@@ -42,6 +46,7 @@ const App = () => {
         <Route path="/user" element={<User />} />
         <Route path="/user/query" element={<UserQuery />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/login/hook" element={<LoginForHookForm />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </div>
