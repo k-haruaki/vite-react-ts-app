@@ -1,4 +1,4 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 type FormData = {
   email: string;
@@ -10,26 +10,24 @@ const LoginForHookForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({ criteriaMode: 'all' });
+  } = useForm<FormData>({
+    criteriaMode: 'all',
+  });
 
-  console.log(errors.email);
-
-  const onSubmit: SubmitHandler<FormData> = (data) => console.log(data);
+  const onSubmit = handleSubmit((data) => console.log(data));
 
   return (
     <div className="App">
       <h1>ログイン</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={onSubmit}>
         <div>
           <label htmlFor="email">Email</label>
           <input
             id="email"
+            {...register('email', { required: true })}
             autoComplete="email"
-            {...register('email', {
-              required: { value: true, message: '入力が必須の項目です' },
-            })}
           />
-          {errors.email?.message && <div>{errors.email.message}</div>}
+          {errors.email && <div>入力が必須の項目です</div>}
         </div>
         <div>
           <label htmlFor="password">Password</label>
