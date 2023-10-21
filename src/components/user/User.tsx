@@ -9,7 +9,7 @@ export type UserWithoutAge = Omit<User, 'name'>;
 // 通常のOmitは第2引数に存在しない値を渡してもエラーにならない
 // タイポなどを防ぐため、Omitのラッパーを作成することがある。実装例
 export type MyOmit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-type myOmitUserWithoutAge = MyOmit<User, 'name'>;
+export type myOmitUserWithoutAge = MyOmit<User, 'name'>;
 
 const fetchUsers = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');
