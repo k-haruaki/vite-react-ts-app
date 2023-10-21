@@ -3,6 +3,9 @@ import userData from './data.json';
 
 export type User = typeof userData;
 
+// Omitを利用してUser型からageを除外
+export type UserWithoutAge = Omit<User, 'age'>;
+
 const fetchUsers = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');
   return res.json();
