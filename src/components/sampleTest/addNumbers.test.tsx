@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import * as sample from './sample';
+import * as sample from './addNumbers';
 
 describe('Calculate', () => {
   test('addNumbers', () => {
