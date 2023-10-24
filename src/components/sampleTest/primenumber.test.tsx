@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { primenumber } from './sample';
+import { primenumber } from './primenumber';
 
 describe('primenumber', () => {
   it('should return false when n is less than 1', () => {
